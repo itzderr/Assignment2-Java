@@ -40,7 +40,7 @@ public class Grader {
         Assert.assertEquals(6, assignment2.sumExcept13(new int[]{1, 2, 2, 1}));
         Assert.assertEquals(0, assignment2.sumExcept13(new int[]{}));
         Assert.assertEquals(6, assignment2.sumExcept13(new int[]{1, 2, 2, 1, 13}));
-        Assert.assertEquals(4, assignment2.sumExcept13(new int[]{1, 2, 13, 2, 1, 13}));
+        Assert.assertEquals(3, assignment2.sumExcept13(new int[]{1, 2, 13, 2, 1, 13}));
         Assert.assertEquals(0, assignment2.sumExcept13(new int[]{13, 1, 13}));
     }
 
