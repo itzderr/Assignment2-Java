@@ -21,6 +21,7 @@ public class Grader {
 
     @Test
     public void testNumberLoops() {
+       
         Assert.assertEquals("1", assignment2.numberLoops(1));
         Assert.assertEquals("..1\n.22\n333", assignment2.numberLoops(3));
         Assert.assertEquals("....1\n...22\n..333\n.4444\n55555", assignment2.numberLoops(5));

@@ -1,5 +1,7 @@
 package ca.ciccc;
 
+import java.util.Arrays;
+
 /**
  * This is the starter file for the Assignment 2
  *
@@ -22,9 +24,30 @@ public class Assignment2 {
      *
      */
     public String numberLoops(int n) {
-        // Todo: your code goes here
-
-        return null;
+        //String[][] loops = new String[n+1][n+1];
+        String result="";
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n+1; j++)
+            {
+                if(n!=1)
+                {
+                    if(j != n+1 && (n-i+1) <= j)
+                    result+=Integer.toString(i);
+                    else if(j==n+1 && i != n)
+                    result+="\n";
+                    else if(j!=n+1)
+                    result+=".";
+                }
+                else if(j !=n+1)
+                result+=1;
+                
+               
+            }
+            //System.out.println();
+        }
+        
+        return result;
     }
 
     /**
