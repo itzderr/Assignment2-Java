@@ -23,8 +23,34 @@ public class Assignment2 {
      */
     public String numberLoops(int n) {
         // Todo: your code goes here
+        String[][] matrix = new String[n][n];
+        String result = "";
 
-        return null;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if ((i+j)<(n-1)){
+                    matrix[i][j] = ".";
+                } else {
+
+                    matrix[i][j] = Integer.toString(i+1);
+                }
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                result = result + matrix[i][j];
+                if (j == n - 1 && i != n - 1) {
+                    result = result + "\n";
+                }
+
+
+            }
+        }
+
+
+
+        return result;
     }
 
     /**
@@ -34,6 +60,21 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
+        int count1 = 0;
+        int count7 = 0;
+        for (int number:
+             nums) {
+            if (number == 1){
+                count1++;
+            }
+            if (number == 7){
+                count7++;
+            }
+
+        }
+        if (count1>count7){
+            return true;
+        }
 
         return false;
     }
@@ -52,8 +93,19 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
-
-        return 0;
+        int count = 0;
+        boolean after13 = false;
+        for (int number:
+                nums) {
+            if(number==13){
+                after13 = true;
+            } else if (after13){
+                after13 = false;
+            } else {
+                count=count+number;
+            }
+        }
+        return count;
     }
 
     /**
@@ -69,8 +121,18 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
+        if(nums.length>0) {
+            int firstNumber = nums[0];
 
-        return null;
+            for (int i = 0; i < nums.length; i++) {
+                if (i == (nums.length - 1)) {
+                    nums[i] = firstNumber;
+                } else {
+                    nums[i] = nums[i + 1];
+                }
+            }
+        }
+        return nums;
     }
 
     /**
@@ -80,6 +142,23 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
+        int count = 0;
+        boolean r = false;
+
+        for (int i = 1; i < nums.length; i++) {
+
+            if ((nums[i-1]==nums[i]-1)) {
+                count++;
+
+            } else {
+                count = 0;
+            }
+            if (count==2){
+                System.out.println(count);
+                return true;
+
+            }
+        }
 
         return false;
     }
@@ -91,7 +170,20 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
+        int countOdds = 0;
+        int countEven = 0;
 
+        for (int number:
+             nums) {
+            if(number%2==0){
+                countEven++;
+            } else {
+                countOdds++;
+            }
+        }
+        if (countEven==countOdds){
+            return true;
+        }
         return false;
     }
 }
