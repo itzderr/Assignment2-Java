@@ -71,28 +71,30 @@ public class MagicSquare {
     public static boolean isMagicSquare(Integer[][] square) {
         int totcol = 0;
         int totrow = 0;
-        int temprow = 0;
-        int tempcol = 0;
+        
+        
         int ocol = 0;
         int orow = 0;
         while(ocol < square.length){
+            int temp = 0;
             for(int row = 0; row < square.length; row++){
-                temprow += square[row][ocol];
+                temp += square[row][ocol];
             }
             if(ocol == 0)
-                totrow = temprow;
-            else if(totrow != temprow)
+                totrow = temp;
+            else if(totrow != temp)
                 return false;
             ocol++;
         }
        
         while(orow < square.length){
+            int temp = 0;
             for(int col = 0; col < square[orow].length; col++){
-                tempcol += square[orow][col];
+                temp += square[orow][col];
             }
             if(orow == 0)
-                totcol = tempcol;
-            else if(totcol != tempcol)
+                totcol = temp;
+            else if(totcol != temp)
                 return false;
             orow++;
         }
