@@ -21,10 +21,21 @@ public class Assignment2 {
      * 333
      *
      */
-    public String numberLoops(int n) {
+    public String numberLoops(int n)
+    {
         // Todo: your code goes here
-
-        return null;
+        for (int line = 1; line <= 5; line++)
+        {
+            for (int dot = 1; dot <= line * -1 + 5; dot++)
+            {
+                System.out.print(".");
+            }
+            for (int n = 1; n <= line; n++)
+            {
+                System.out.print(line);
+            }
+            System.out.println();
+        }
     }
 
     /**
@@ -34,7 +45,14 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
-
+        int balance = 0;
+        for(int i = 0; i < nums.length; i++)
+        {
+            if(nums[i] == 1)
+                balance++;
+            else if(nums[i] == 7)
+                balance--;
+        }
         return false;
     }
 
@@ -52,7 +70,14 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
-
+        int sum = 0;
+        for(int i = 0; i < nums.length; i++)
+        {
+            if(nums[i] == 13)
+                i++;
+            else
+                sum += nums[i];
+        }
         return 0;
     }
 
@@ -69,7 +94,13 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
-
+        if(nums.length >= 2)
+        {
+            int temp = nums[0];
+            for(int i = 0; i < nums.length - 1; i++)
+                nums[i] = nums[i+1];
+            nums[nums.length-1] = temp;
+        }
         return null;
     }
 
@@ -80,7 +111,19 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
+        boolean prevOrder = false;
+        for(int i = 0; i < nums.length - 1; i++)
+        {
+            if(nums[i+1] - nums[i] == 1)
+            {
+                if(prevOrder)
+                    return true;
+                else
+                    prevOrder = true;
+            }
+            else
+                prevOrder = false;
+        }
         return false;
     }
 

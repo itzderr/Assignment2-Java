@@ -71,7 +71,76 @@ public class MagicSquare {
      */
     public static boolean isMagicSquare(Integer[][] square) {
         // TODO: You need to implement this method.
+        public static void main(String[] args) {
+            int [][] square =
+                    {
+                    {16, 3, 2, 13},
+                    {5, 10, 11, 8},
+                    {9, 6, 7, 12},
+                    {4, 15, 14, 1}
+            };
+            System.out.println("Is magic square: " + magicSquare(square));
+        }
+        private static boolean magicSquare(int[][] square){
 
+            int n = sumOfRow(square[0]);
+
+            for (int[] row : square)
+            {
+                int sum = sumOfRow(row);
+                if (sum != n)
+                    return false;
+            }
+            int sum = 0;
+
+            //rows
+            for (int i = 0; i < square.length; i++){
+                sum = 0;
+                for (int j = 0; j < square.length; j++){
+                    sum += square[i][j];
+                }
+                if(sum != n){
+                    return false;
+                }
+            }
+            // columns
+
+            for(int i =0; i < square.length; i++){
+                sum = 0;
+
+                for(int j = 0; j< square.length; j++){
+                    sum += square[j][i];
+                }
+                if(sum != n){
+                    return false;
+                }
+            }
+            sum = 0;
+            for (int i = 0; i < square.length; i++)
+            {
+                sum += square[i][i];
+            }
+            if (sum != n)
+                return false;
+
+            sum = 0;
+
+            for (int i = 0; i < square.length; i++)
+            {
+                sum += square[i][square.length - 1 - i];
+            }
+            if (sum != n)
+                return false;
+            return true;
+
+        }
+
+        private static int sumOfRow(int[] row){
+            int sum = 0;
+            for(int el : row){
+                sum += el;
+            }
+        }
         return false;
     }
 
