@@ -78,12 +78,12 @@ public class MagicSquare {
         while(ocol < square.length){
             for(int row = 0; row < square.length; row++){
                 temprow += square[row][ocol];
-                if(ocol == 0)
-                    totrow = temprow;
-                else if(totrow != totcol)
-                    return false;
-                ocol++;
             }
+            if(ocol == 0)
+                totrow = temprow;
+            else if(totrow != temprow)
+                return false;
+            ocol++;
         }
        
         while(orow < square.length){
