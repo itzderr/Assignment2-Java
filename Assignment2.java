@@ -22,11 +22,20 @@ public class Assignment2 {
      * 333
      */
     public String numberLoops(int n) {
-        // Todo: your code goes here
-
-        return null;
+        String numbers = "";
+        for (int i = 1; i <= n; ++i) {
+            String number = "";
+            for (int j = 0; j < n - i; ++j){
+                number += ".";
+            }for (int j = 0; j < i; ++j){
+                number += String.format("%d", i);
+            }numbers += number;
+            if (i < n){
+                numbers += "\n";
+            }
+        }
+        return numbers;
     }
-
     /**
      * Given an array of integers, return true if the number of 1s is greater than the number of 7s
      *
@@ -67,20 +76,15 @@ public class Assignment2 {
      * sumExcept13({1, 2, 13, 2, 1, 13} -> 4
      */
     public int sumExcept13(int[] nums) {
-        int not13 = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] % 13 == 0) {
-                nums[i] = 0;
-                nums[i + 1] = 0;
-
-            }
+        int fin = 0;
+        for (int i = 0; i < nums.length; ++i){
+            if (nums[i] == 13){
+                ++i;
+                continue;
+            }fin += nums[i];
         }
-        for (int j = 0; j < nums.length; j++) {
-            not13 += nums[j];
-        }
-        return not13;
+        return fin;
     }
-
     /**
      * Return an array that is "left shifted" by one -- so {6, 2, 5, 3} return {2, 5, 3, 6}.
      * You may modify and return the given array, or return a new array.
@@ -138,14 +142,17 @@ public class Assignment2 {
      * @param nums array of ints.
      * @return true if the array contains the same number of odds and even numbers, otherwise false.
      */
-    public boolean evenOrOdd(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            if (i % 2 == 0) {
-                return true;
-            } else {
-                return false;
-            }
+    public boolean evenOrOdd(int[] nums){
+
+        int nEven = 0;
+    int nOdd = 0;
+        for (int i = 0; i < nums.length; ++i){
+        if (nums[i] % 2 == 0){
+            nEven += 1;
+        }else{
+            nOdd += 1;
         }
-        return true;
     }
+        return nEven == nOdd;
+ }
 }
