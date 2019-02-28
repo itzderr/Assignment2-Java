@@ -1,9 +1,11 @@
 package ca.ciccc;
 
+import java.util.Scanner;
+
 /**
  * This is the starter file for the Assignment 2
  *
- * @author Derrick Park
+ * @author Shu-Ming Jiang
  * @version 1.0
  */
 public class Assignment2 {
@@ -23,19 +25,25 @@ public class Assignment2 {
      */
     public String numberLoops(int n) {
         // Todo: your code goes here
+        String numbers = "";
+        for (int i = 1; i <= n; ++i) {
+            String number = "";
+            for (int j = 0; j < n - i; ++j)
+            {
+                number += ".";
+            }
+            for (int j = 0; j < i; ++j)
+            {
+                number += String.format("%d", i);
+            }
+            numbers += number;
 
-        return null;
-    }
-
-    /**
-     * Given an array of integers, return true if the number of 1s is greater than the number of 7s
-     * @param nums array of ints
-     * @return true if the number of 1s is greater than the number of 7s
-     */
-    public boolean countNumbers(int[] nums) {
-        // Todo: your code goes here
-
-        return false;
+            if (i < n)
+            {
+                numbers += "\n";
+            }
+        }
+        return numbers;
     }
 
     /**
@@ -52,8 +60,35 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+        int sum = 0;
+        for(int i = 0; i < nums.length; i++)
+        {
+            if(nums[i] == 13)
+                i++;
+            else
+                sum += nums[i];
+        }
+        return sum;
+    }
 
-        return 0;
+    /**
+     * Given an array of integers, return true if the number of 1s is greater than the number of 7s
+     * @param nums array of ints
+     * @return true if the number of 1s is greater than the number of 7s
+     */
+    public boolean countNumbers(int[] nums) {
+        // Todo: your code goes here
+        int oneCount = 0;
+        int sevenCount = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                oneCount++;
+            } else if (nums[i] == 7) {
+                sevenCount++;
+            }
+        }
+        return (oneCount > sevenCount);
     }
 
     /**
@@ -69,8 +104,13 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
-
-        return null;
+        if (nums.length >= 2) {
+            int temp = nums[0];
+            for (int i = 0; i < nums.length - 1; i++)
+                nums[i] = nums[i + 1];
+            nums[nums.length - 1] = temp;
+        }
+        return nums;
     }
 
     /**
@@ -80,7 +120,10 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
+        for(int i = 0; i <= nums.length - 3; i++) {
+            if(nums[i] + 1 == nums[i+1] && nums[i+1] + 1 == nums[i+2])
+                return true;
+        }
         return false;
     }
 
@@ -91,8 +134,19 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
-
-        return false;
+        int even = 0;
+        int odd = 0;
+        for (int i = 0; i < nums.length; ++i)
+        {
+            if (nums[i] % 2 == 0)
+            {
+                even += 1;
+            }
+            else
+            {
+                odd += 1;
+            }
+        }
+        return even == odd;
     }
 }
-
