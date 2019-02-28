@@ -1,5 +1,7 @@
 package ca.ciccc;
 
+import java.util.Scanner;
+
 /**
  * This is the starter file for the Assignment 2
  *
@@ -23,6 +25,14 @@ public class Assignment2 {
      */
     public String numberLoops(int n) {
         // Todo: your code goes here
+        Scanner in = new Scanner(System.in);
+        System.out.println("Number : ");
+        int num = in.nextInt();
+        for (int i = num; i > 0; i--){
+            for (int j = i; j > 0; j--){
+                System.out.println("." + num);
+            }
+        }
 
         return null;
     }
@@ -35,6 +45,16 @@ public class Assignment2 {
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
 
+        int count1 = 0;
+        int count7 = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                count1++ ;
+            } else if (nums[i] == 7) {
+                count7++ ;
+            }
+            return (count1 > count7);
+        }
         return false;
     }
 
@@ -52,7 +72,12 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] == 13)
+            sum += nums.length;
 
+        }
         return 0;
     }
 
@@ -69,6 +94,9 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
+        for (int i = 0; i < nums.length -1; i++){
+            nums[i] = nums[i -1];
+        }
 
         return null;
     }
@@ -91,6 +119,11 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] % 2 == 0){
+               // How to check same number
+            }
+        }
 
         return false;
     }
