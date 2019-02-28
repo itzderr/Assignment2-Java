@@ -18,6 +18,7 @@ public class MagicSquare {
 
     /**
      * Constructor that takes n as the number of rows and cols.
+     *
      * @param n number of rows and cols.
      */
     public MagicSquare(int n) {
@@ -27,7 +28,8 @@ public class MagicSquare {
     /**
      * Constructor that takes n as the number of rows and cols.
      * Initializes square 2-Dimensional array.
-     * @param n number of rows and cols.
+     *
+     * @param n      number of rows and cols.
      * @param square
      */
     public MagicSquare(int n, Integer[][] square) {
@@ -37,6 +39,7 @@ public class MagicSquare {
 
     /**
      * Getter for square
+     *
      * @return {@code this.square}
      */
     public Integer[][] getSquare() {
@@ -45,6 +48,7 @@ public class MagicSquare {
 
     /**
      * Setter for square.
+     *
      * @param square
      */
     public void setSquare(Integer[][] square) {
@@ -53,27 +57,55 @@ public class MagicSquare {
 
     /**
      * Check if {@code square} is magic square or not.
+     *
      * @param square 2-Dimensional array
      * @return {@code true} if {@code square} is magic, otherwise {@code false}
-     *
+     * <p>
      * Sample Input
      * {
-     *   {16, 3, 2, 13},
-     *   {5, 10, 11, 8},
-     *   {9, 6, 7, 12},
-     *   {4, 15, 14, 1}
+     * {16, 3, 2, 13},
+     * {5, 10, 11, 8},
+     * {9, 6, 7, 12},
+     * {4, 15, 14, 1}
      * }
-     *
+     * <p>
      * Sample Output
      * true
-     *
+     * <p>
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
+        int total = 0;
+        int sqH = square.length;
+        for (int i = 0; i < sqH; ++i) {
+            int firstRow = 0;
+            for (int j = 0; j < sqH; ++j) {
+                firstRow += square[j][i];
+            }
+            total = firstRow;
+        }
+        for (int j = 1; j < sqH; ++j) {
+            int rowTotal = 0;
+            for (int i = 0; i < sqH; ++i) {
+                rowTotal += square[j][i];
+            }
+            if (rowTotal != total) {
+                return false;
+            }
+        }
+        for (int i = 0; i < sqH; ++i) {
+            int col = 0;
+            for (int j = 0; j < sqH; ++j) {
+                col += square[j][i];
+            }
+            if (col != total) {
+                return false;
+            }
+        }
+        return true;
 
-        return false;
     }
+
 
     /**
      * Check if {@code this.square} is magic square or not.
