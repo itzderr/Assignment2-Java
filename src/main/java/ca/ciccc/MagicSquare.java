@@ -1,5 +1,4 @@
 package ca.ciccc;
-
 /**
  *
  * Magic Squares are square arrays of numbers that have the interesting property that
@@ -70,9 +69,38 @@ public class MagicSquare {
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-
-        return false;
+        int totcol = 0;
+        int totrow = 0;
+        int temprow = 0;
+        int tempcol = 0;
+        int ocol = 0;
+        int orow = 0;
+        while(ocol < square.length){
+            for(int row = 0; row < square.length; row++){
+                temprow += square[row][ocol];
+                if(ocol == 0)
+                    totrow = temprow;
+                else if(totrow != totcol)
+                    return false;
+                ocol++;
+            }
+        }
+       
+        while(orow < square.length){
+            for(int col = 0; col < square[orow].length; col++){
+                tempcol += square[orow][col];
+            }
+            if(orow == 0)
+                totcol = tempcol;
+            else if(totcol != tempcol)
+                return false;
+            orow++;
+        }
+        
+        if(totrow == totcol)
+            return true;
+        else
+            return false;
     }
 
     /**
