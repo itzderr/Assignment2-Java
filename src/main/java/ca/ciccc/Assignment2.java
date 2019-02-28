@@ -1,6 +1,6 @@
 package ca.ciccc;
 
-import java.util.Arrays;
+
 
 /**
  * This is the starter file for the Assignment 2
@@ -56,9 +56,18 @@ public class Assignment2 {
      * @return true if the number of 1s is greater than the number of 7s
      */
     public boolean countNumbers(int[] nums) {
+        int test = 0;
+        for(int num: nums){
+            if(num ==  1)
+                test++;
+            if(num == 7)
+                test--;
+        }
         // Todo: your code goes here
-
-        return false;
+        if(test <= 0)
+            return false;
+        else
+            return true;
     }
 
     /**
@@ -75,8 +84,15 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+        int total = 0; 
+        for(int i= 0; i < nums.length; i++){
+            if(nums[i] != 13)
+                total += nums[i];
+            else if(nums[i] ==13 && i+1 != nums.length)
+                total -= nums[i+1];
+        }
 
-        return 0;
+        return total;
     }
 
     /**
@@ -92,8 +108,19 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
-
-        return null;
+        if(nums.length == 0)
+            return nums;
+        else{
+            int ofirst = nums[0];
+            for(int i = 0; i < nums.length; i++){
+                if(i != nums.length - 1)
+                    nums[i] = nums[i+1];
+                else
+                    nums[i] = ofirst;
+            }
+            return nums;
+        }
+        
     }
 
     /**
@@ -103,8 +130,18 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
-        return false;
+        //boolean javaisgreat = false;
+        if(nums.length < 3)
+            return false;
+        else{
+           for(int i = 0; i < (nums.length -2); i++){
+               if((nums[i] + 1) == nums[i+1] && (nums[i+1] + 1) == nums[i+2]){
+                    return true;
+                }
+            }
+           return false;
+        }
+        
     }
 
     /**
@@ -114,8 +151,20 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
-
-        return false;
+        if(nums.length < 2)
+            return false;
+        int parity = 0;
+        for(int num: nums){
+            if(num %2 == 0)
+                parity++;
+            else
+                parity--;
+        }
+        if(parity==0)
+            return true;
+        else
+            return false;
+        
     }
 }
 
