@@ -1,5 +1,8 @@
 package ca.ciccc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This is the starter file for the Assignment 2
  *
@@ -23,8 +26,25 @@ public class Assignment2 {
      */
     public String numberLoops(int n) {
         // Todo: your code goes here
+        String total = "";
+        int num = 1;
+        for(int line = 1; line <= n; line++) {
+            // (n-1) dots
+            // 1 number
+            for(int dot = 1; dot <= n - line; dot++) {
+                total += ".";
+            }
+            for(int number = 1; number <= line; number++) {
+                total += num;
+            }
 
-        return null;
+            if (line != n) {
+                total += '\n';
+            }
+            num++;
+        }
+
+        return total;
     }
 
     /**
@@ -34,8 +54,23 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
-
-        return false;
+        int t = 0;
+        int f = 0;
+        for (int i = 0; i < nums.length ; i++){
+            if(nums[i] == 7){
+                f = i;
+            }
+            for(int p = 0; p < nums.length ; p++){
+                if(nums[p] == 1){
+                    t = p;
+                }
+            }
+        }
+        if(t > f){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -52,8 +87,16 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+        int sum = 0;
 
-        return 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 13){
+                i = i + 1;
+            }else{
+                sum = sum + nums[i];
+            }
+        }
+        return sum;
     }
 
     /**
@@ -69,8 +112,25 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
+        int temp = 0;
 
-        return null;
+        for(int i = 0; i < nums.length; i++){
+            if(nums.length < 3 && nums.length > 1) {
+                temp = nums[i + 1];
+                nums[i + 1] = nums[i];
+                nums[i] = temp;
+                break;
+            }else if(nums.length == 1){
+                break;
+            }else if(i == nums.length - 1) {
+                break;
+            }
+            temp = nums[i + 1];
+            nums[i + 1] = nums[i];
+            nums[i] = temp;
+        }
+        return nums;
+
     }
 
     /**
@@ -80,7 +140,15 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
+        for(int i = 0; i < nums.length -1; i++){
+            if(nums[i + 1] == nums[i] + 1){
+                for(int p = i + 1; p < nums.length -1; p++){
+                    if(nums[p + 1] == nums[p] + 1){
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 
@@ -91,8 +159,22 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
+        int oddCount = 0;
+        int evenCount = 0;
 
-        return false;
+        for(int i = 0; i <= nums.length - 1; i++){
+            if(nums[i] % 2 != 0){
+                oddCount += 1;
+            }else if(nums[i] % 2 == 0){
+                evenCount += 1;
+            }
+        }
+        if(oddCount == evenCount){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
+
 
