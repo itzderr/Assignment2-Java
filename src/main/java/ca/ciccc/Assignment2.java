@@ -22,9 +22,19 @@ public class Assignment2 {
      *
      */
     public String numberLoops(int n) {
-        // Todo: your code goes here
-
-        return null;
+        String output = "";
+        for (int i = 1; i <= n; i++) {
+            if (i != 1) {
+                output += "\n";
+            }
+            for (int j = n - i; j > 0; j--) {
+                output += ".";
+            }
+            for (int j = i; j > 0; j--) {
+                output += i;
+            }
+        }
+        return output;
     }
 
     /**
