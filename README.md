@@ -20,7 +20,7 @@
    - Test files
 
 ### Step 5: Test locally
-1. Open `Gradle.java` and `TestMagicSquare.java`, you can test your code.
+1. Open `Grader.java` and `TestMagicSquare.java`, you can test your code.
 2. Make sure your code passes all the test cases.
 
 ### Step 6: Submit
