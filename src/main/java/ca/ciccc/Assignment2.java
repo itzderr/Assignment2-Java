@@ -66,9 +66,12 @@ public class Assignment2 {
      * @return true if the number of 1s is greater than the number of 7s
      */
     public boolean countNumbers(int[] nums) {
-        // Todo: your code goes here
-
-        return false;
+        int trueCounter = 0;
+        for (int num: nums) {
+            if (num == 1) trueCounter++;
+            else if (num == 7) trueCounter--;
+        }
+        return trueCounter > 0;
     }
 
     /**
