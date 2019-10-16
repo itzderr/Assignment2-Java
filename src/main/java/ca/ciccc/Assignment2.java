@@ -1,5 +1,8 @@
 package ca.ciccc;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 /**
  * This is the starter file for the Assignment 2
  *
@@ -22,19 +25,39 @@ public class Assignment2 {
      *
      */
     public String numberLoops(int n) {
-        String output = "";
-        for (int i = 1; i <= n; i++) {
-            if (i != 1) {
-                output += "\n";
+        int nLength = String.valueOf(n).length();
+
+        char[] placeholderCharacters = new char[nLength];
+        for (int i = 0; i < nLength; i++) {
+            placeholderCharacters[i] = '.';
+        }
+        String placeholder = String.copyValueOf(placeholderCharacters);
+
+        String[][] data = new String[n][n];
+        for (int i = 0; i < n; i++) {
+            int num = i + 1;
+
+            String rowNumberString = String.valueOf(num);
+            int lengthDiff = nLength - rowNumberString.length();
+            char[] rowChars = new char[lengthDiff];
+            for (int x = 0; x < lengthDiff; x++) {
+                rowChars[x] = '.';
             }
-            for (int j = n - i; j > 0; j--) {
-                output += ".";
+            String rowString = String.copyValueOf(rowChars) + rowNumberString;
+
+            int numDiff = n - num;
+            for (int j = 0; j < numDiff; j++) {
+                data[i][j] = placeholder;
             }
-            for (int j = i; j > 0; j--) {
-                output += i;
+            for (int j = numDiff; j < n; j++) {
+                data[i][j] = rowString;
             }
         }
-        return output;
+
+        return String.join(
+            "\n",
+            Arrays.stream(data).map(row -> String.join("", row)).toArray(String[]::new)
+        );
     }
 
     /**
