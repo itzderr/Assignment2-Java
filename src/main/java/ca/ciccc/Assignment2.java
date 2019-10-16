@@ -110,9 +110,16 @@ public class Assignment2 {
      * shiftArray({7}) -> {7}
      */
     public int[] shiftArray(int[] nums) {
-        // Todo: your code goes here
+        if (nums.length == 0) {
+            return nums;
+        }
 
-        return null;
+        int head = nums[0];
+        for (int i = 0; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+        nums[nums.length - 1] = head;
+        return nums;
     }
 
     /**
