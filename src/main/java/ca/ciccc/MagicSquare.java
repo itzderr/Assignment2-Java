@@ -70,8 +70,35 @@ public class MagicSquare {
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-        return false;
+        int magicNumber = 0;
+        for (int i = 0; i < square.length; i++) {
+            int tmp = 0;
+            for (int j = 0; j < square[i].length; j++) {
+                tmp += square[i][j];
+            }
+            if (i == 0) {
+                magicNumber = tmp;
+            } else {
+                if (tmp != magicNumber) {
+                    return false;
+                }
+            }
+        }
+        for (int i = 0; i < square[0].length; i++) {
+            int tmp = 0;
+            for (int j = 0; j < square.length; j++) {
+                //System.out.print(square[j][i] + " ");
+                tmp += square[j][i];
+            }
+            if (i == 0) {
+                magicNumber = tmp;
+            } else {
+                if (tmp != magicNumber) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
