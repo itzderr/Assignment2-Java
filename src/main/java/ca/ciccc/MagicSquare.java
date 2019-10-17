@@ -1,4 +1,5 @@
 package ca.ciccc;
+import java.util.Arrays;
 
 /**
  *
@@ -11,6 +12,7 @@ package ca.ciccc;
  * Integer is a wrapper class for {@code int} primitive type.
  */
 public class MagicSquare {
+
     /* n rows and n cols square */
     private int n;
     /* 2-Dimensional array to represent the square */
@@ -70,8 +72,34 @@ public class MagicSquare {
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-        return false;
+
+        int[] sumArr = new int[square.length + 2];
+        int sumDiagLeft = 0;
+        int sumDiagRight = 0;
+
+        for(int i = 0; i < square.length; i ++){
+            int sumRowCol = 0;
+
+            for(int j = 0; j < square[i].length; j++){
+                sumRowCol += square[i][j];
+            }
+            sumDiagLeft += square[i][i];
+            sumDiagRight += square[i][square.length - 1];
+            sumArr[i] = sumRowCol;
+        }
+
+        sumArr[square.length] = sumDiagLeft;
+        sumArr[square.length + 1] = sumDiagRight;
+
+        boolean result = true;
+
+        for(int k = 1; k <= sumArr.length; k++){
+            if(sumArr[k] != sumArr[k -1]){
+                result = false;
+            }
+        }
+
+        return result;
     }
 
     /**

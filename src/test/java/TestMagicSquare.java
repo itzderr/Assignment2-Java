@@ -17,6 +17,7 @@ public class TestMagicSquare {
                 {new Integer[][]{{5, 10, 1, 3}, {10, 4, 2, 3}, {1, 2, 8, 5}, {3, 3, 5, 0}}, Boolean.FALSE}, // [3]
                 {new Integer[][]{{1, 2, 3}, {1, 2, 3}, {1, 2, 3}}, Boolean.FALSE}, // [4]
                 {new Integer[][]{{1, 2, 3}, {3, 1, 2}, {2, 3, 1}}, Boolean.TRUE}, // [5]
+                
         });
     }
 
