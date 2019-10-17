@@ -65,6 +65,7 @@ public class Grader {
 
     @Test
     public void testEvenOrOdds() {
+        System.out.println(assignment2.evenOrOdd(new int[]{1, 4, 5, 6, 5}));
         Assert.assertEquals(false, assignment2.evenOrOdd(new int[]{1, 4, 5, 6, 5}));
         Assert.assertEquals(false, assignment2.evenOrOdd(new int[]{1, 2, 3}));
         Assert.assertEquals( true, assignment2.evenOrOdd(new int[]{1, 2, 4, 5}));
