@@ -21,10 +21,20 @@ public class Assignment2 {
      * 333
      *
      */
-    public String numberLoops(int n) {
-        // Todo: your code goes here
 
-        return null;
+    public static String numberLoops(int n) {
+        // Todo: your code goes here
+        String t = "";
+        int[][] list = new int[n][n];
+
+        for(int i = 1; i <= list.length; i++) {
+            for(int j = list.length; 1<= j; j--) {
+                t += j <= i ? i : ".";
+            }
+            t += i == list.length? "": "\n";
+        }
+
+        return t;
     }
 
     /**
@@ -34,8 +44,23 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
+        int count_one = 0;
+        int count_seven = 0;
+        int i = 0;
 
-        return false;
+        while(i < nums.length) {
+            switch (nums[i]) {
+                case 1:
+                    count_one++;
+                    break;
+                case 7:
+                    count_seven++;
+                    break;
+            }
+            i++;
+        }
+
+        return count_seven < count_one;
     }
 
     /**
@@ -52,8 +77,16 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 13) {
+                i++;
+                continue;
+            }
+            sum += nums[i];
+        }
 
-        return 0;
+        return sum;
     }
 
     /**
@@ -70,7 +103,16 @@ public class Assignment2 {
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
 
-        return null;
+        if (nums.length < 1) return nums;
+
+        int[] left_shifted = new int[nums.length];
+
+        left_shifted[nums.length-1] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            left_shifted[i-1] = nums[i];
+        }
+
+        return left_shifted;
     }
 
     /**
@@ -81,7 +123,29 @@ public class Assignment2 {
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
 
-        return false;
+        // This function needs three numbers to compare increasing adjacent.
+        if (nums.length < 3) return false;
+
+        int target;
+        int count = 1;
+        boolean v = false;
+        for (int i = 0; i < nums.length-1; i++) {
+
+            target = nums[i];
+            if (target + 1 != nums[i+1]) {
+                count = 1;
+                continue;
+            }
+            count++;
+
+            if (count == 3) {
+                v = true;
+                break;
+            }
+
+        }
+
+        return v;
     }
 
     /**
@@ -92,7 +156,16 @@ public class Assignment2 {
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
 
-        return false;
+        // the each number have to be same, which means nums have to be even number.
+        if (nums.length % 2 != 0) return false;
+
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i] % 2 == 0 ? 1 : -1;
+        }
+
+        return sum == 0;
+
     }
 }
 
