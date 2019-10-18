@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestMagicSquare" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-10-18T08:40:14" hostname="macdeMBP.hitronhub.home" time="0.004">
+  <properties/>
+  <testcase name="testIsMagicSquareData[0: MagicSquare.isMagicSquare([0]) = true]" classname="TestMagicSquare" time="0.002"/>
+  <testcase name="testIsMagicSquareData[1: MagicSquare.isMagicSquare([1]) = false]" classname="TestMagicSquare" time="0.0"/>
+  <testcase name="testIsMagicSquareData[2: MagicSquare.isMagicSquare([2]) = true]" classname="TestMagicSquare" time="0.0"/>
+  <testcase name="testIsMagicSquareData[3: MagicSquare.isMagicSquare([3]) = false]" classname="TestMagicSquare" time="0.0"/>
+  <testcase name="testIsMagicSquareData[4: MagicSquare.isMagicSquare([4]) = false]" classname="TestMagicSquare" time="0.0"/>
+  <testcase name="testIsMagicSquareData[5: MagicSquare.isMagicSquare([5]) = true]" classname="TestMagicSquare" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
