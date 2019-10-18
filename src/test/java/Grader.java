@@ -58,7 +58,7 @@ public class Grader {
         Assert.assertEquals(true, assignment2.tripleIncreasingOrder(new int[]{1, 4, 5, 6, 5}));
         Assert.assertEquals(true, assignment2.tripleIncreasingOrder(new int[]{1, 2, 3}));
         Assert.assertEquals(false, assignment2.tripleIncreasingOrder(new int[]{1, 2, 4}));
-        Assert.assertEquals(false, assignment2.tripleIncreasingOrder(new int[]{1 }));
+        Assert.assertEquals(false, assignment2.tripleIncreasingOrder(new int[]{1}));
         Assert.assertEquals(true, assignment2.tripleIncreasingOrder(new int[]{1, 2, 4, 5, 7, 6, 5, 6, 7, 6}));
         Assert.assertEquals(true, assignment2.tripleIncreasingOrder(new int[]{10, 9, 8, -100, -99, -98, 100}));
     }

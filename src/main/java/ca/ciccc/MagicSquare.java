@@ -70,9 +70,74 @@ public class MagicSquare {
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
+
+        int N = square.length;
+
+        int vertical = 0;
+        int vertical2 = 0;
+        int vertical3 = 0;
+
+        int horizontal = 0;
+        int horizontal2 = 0;
+        int horizontal3 = 0;
+
+        if(N == 4){
+
+            // checking vertical
+            for (int i = 0; i < N ; i++) {
+                vertical = vertical + square[0][i];
+            }
+            for (int i = 0; i < N ; i++) {
+                vertical2 = vertical2 + square[1][i];
+            }
+            for (int i = 0; i < N ; i++) {
+                vertical3 = vertical3 + square[2][i];
+            }
+
+            // checking horizontal
+            for (int i = 0; i < N ; i++) {
+                horizontal = horizontal + square[i][0];
+            }
+            for (int i = 0; i < N ; i++) {
+                horizontal2 = horizontal2 + square[i][1];
+            }
+            for (int i = 0; i < N ; i++) {
+                horizontal3 = horizontal3 + square[i][2];
+            }
+
+            if (vertical != vertical2 || vertical != vertical3 || horizontal != vertical3) {
+                return false;
+            }
+
+        }
+
+        // checking vertical
+        for (int i = 0; i < N ; i++) {
+            vertical = vertical + square[0][i];
+        }
+        for (int i = 0; i < N ; i++) {
+            vertical2 = vertical2 + square[1][i];
+        }
+
+        // checking horizontal
+        for (int i = 0; i < N ; i++) {
+            horizontal = horizontal + square[i][0];
+        }
+        for (int i = 0; i < N ; i++) {
+            horizontal2 = horizontal2 + square[i][1];
+        }
+
+        if (vertical == horizontal ) {
+            return true;
+        }
+
         return false;
+
+
     }
+
+
+
 
     /**
      * Check if {@code this.square} is magic square or not.
