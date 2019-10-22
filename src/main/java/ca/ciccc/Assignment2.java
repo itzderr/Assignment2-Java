@@ -128,8 +128,20 @@ public class Assignment2 {
      * @return true if the array contains three increasing adjacent numbers, otherwise false.
      */
     public boolean tripleIncreasingOrder(int[] nums) {
-        // Todo: your code goes here
-
+        final int sequenceLength = 3;
+        int iterationCount = sequenceLength - 1;
+        int lastIndex = nums.length - iterationCount;
+        for (int i = 0; i < lastIndex; i++) {
+            for (int j = iterationCount; j > 0; j--) {
+                if (nums[i] + 1 != nums[i+1]) {
+                    continue;
+                }
+                if (j == 1) {
+                    return true;
+                }
+                i++;
+            }
+        }
         return false;
     }
 
