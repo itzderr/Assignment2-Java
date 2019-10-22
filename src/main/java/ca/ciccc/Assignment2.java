@@ -1,8 +1,5 @@
 package ca.ciccc;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 /**
  * This is the starter file for the Assignment 2
  *
