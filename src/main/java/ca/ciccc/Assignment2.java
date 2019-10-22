@@ -153,6 +153,7 @@ public class Assignment2 {
      * @return true if the array contains the same number of odds and even numbers, otherwise false.
      */
     public boolean evenOrOdd(int[] nums){
+
         int countEven = 0;
         for(int i = 0; i < nums.length; i++) {
             if (nums[i] % 2 == 0) {
