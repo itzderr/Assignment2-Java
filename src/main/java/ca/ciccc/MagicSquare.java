@@ -70,8 +70,49 @@ public class MagicSquare {
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-        return false;
+
+        // sum n rows == sum n cols
+        //for (int r = 0; r < square.length; r++)
+        Integer[] rowSums = rowSum(square);
+        Integer[] colSums = colSum(square);
+        int firstRowSum = rowSums[0];
+        for(int i = 0; i < rowSums.length; i++) {
+            if (rowSums[i] != firstRowSum) {
+                return false;
+            }
+        }
+        for(int i = 0; i < colSums.length; i++) {
+            if (colSums[i] != firstRowSum) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static Integer[] colSum(Integer[][] arr) {
+        Integer[] colSum = new Integer[arr.length];
+        for(int col = 0; col < arr[0].length; col++) {
+            int colTotal = 0;
+            for(int row = 0; row < arr.length; row++) {
+                colTotal += arr[row][col];
+            }
+            colSum[col] = colTotal;
+        }
+        return colSum;
+    }
+
+    public static Integer[] rowSum(Integer[][] arr) {
+        Integer[] rowSums = new Integer[arr.length];
+        for(int r = 0; r < rowSums.length; r++) {
+            int rowSum = 0;
+            for(Integer elem: arr[r]) {
+                rowSum += elem;
+            }
+            rowSums[r] = rowSum;
+        }
+            // TODO: You need to implement this method.
+        return rowSums;
     }
 
     /**
@@ -82,3 +123,4 @@ public class MagicSquare {
         return isMagicSquare(this.square);
     }
 }
+
