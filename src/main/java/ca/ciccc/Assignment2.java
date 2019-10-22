@@ -151,9 +151,11 @@ public class Assignment2 {
      * @return true if the array contains the same number of odds and even numbers, otherwise false.
      */
     public boolean evenOrOdd(int[] nums){
-        // Todo: your code goes here
-
-        return false;
+        int evenCounter = 0;
+        for (int num: nums) {
+            evenCounter += num % 2 == 0 ? 1 : -1;
+        }
+        return evenCounter == 0;
     }
 }
 
