@@ -27,37 +27,32 @@ public class Assignment2 {
     public String numberLoops(int n) {
         int nLength = String.valueOf(n).length();
 
-        char[] placeholderCharacters = new char[nLength];
+        StringBuilder placeholderSb = new StringBuilder(nLength);
         for (int i = 0; i < nLength; i++) {
-            placeholderCharacters[i] = '.';
+            placeholderSb.append('.');
         }
-        String placeholder = String.copyValueOf(placeholderCharacters);
+        String placeholder = placeholderSb.toString();
 
-        String[][] data = new String[n][n];
-        for (int i = 0; i < n; i++) {
-            int num = i + 1;
+        int resultLength = nLength * n * n + n;
+        StringBuilder resultSb = new StringBuilder(resultLength);
+        for (int i = 1; i <= n; i++) {
+            StringBuilder rowSb = new StringBuilder(placeholder);
+            String rowNumberString = String.valueOf(i);
+            rowSb.replace(nLength - rowNumberString.length(), nLength, rowNumberString);
+            String rowString = rowSb.toString();
 
-            String rowNumberString = String.valueOf(num);
-            int lengthDiff = nLength - rowNumberString.length();
-            char[] rowChars = new char[lengthDiff];
-            for (int x = 0; x < lengthDiff; x++) {
-                rowChars[x] = '.';
-            }
-            String rowString = String.copyValueOf(rowChars) + rowNumberString;
-
-            int numDiff = n - num;
+            int numDiff = n - i;
             for (int j = 0; j < numDiff; j++) {
-                data[i][j] = placeholder;
+                resultSb.append(placeholder);
             }
             for (int j = numDiff; j < n; j++) {
-                data[i][j] = rowString;
+                resultSb.append(rowString);
             }
+            resultSb.append('\n');
         }
+        resultSb.deleteCharAt(resultLength - 1);
 
-        return String.join(
-            "\n",
-            Arrays.stream(data).map(row -> String.join("", row)).toArray(String[]::new)
-        );
+        return resultSb.toString();
     }
 
     /**
