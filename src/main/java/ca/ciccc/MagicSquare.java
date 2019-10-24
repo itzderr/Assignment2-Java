@@ -69,8 +69,45 @@ public class MagicSquare {
      *
      * Explanation: The sums of each row and col are equal.
      */
+    // this exercise Douglas Ciole help and teach me all steps
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
+        boolean isMagic = true;
+        int[] cols = new int[square.length];
+        int[] rows = new int[square.length];
+
+        // summing the indexes
+        for (int i = 0; i < square.length; i++) {
+            for (int j = 0; j < square.length; j++) {
+                rows[i] += square[i][j];
+                cols[j] += square[i][j];
+            }
+        }
+        // verifying if first value is zero
+        int frtVal = 0;
+        for (int i = 0; i < cols.length; i++) {
+            if (i == 0) {
+                frtVal = cols[i];
+            }
+            // when the index col is different than value (frtVal) the cube is false
+            for (int j = 0; j < rows.length; j++) {
+                if (rows[j] != frtVal) {
+                    isMagic = false;
+                    break;
+                }
+            }
+            // is cube is false break and became false
+            if (!isMagic)
+                break;
+            else if (frtVal != cols[i]) {
+                isMagic = false;
+                break;
+            }
+
+        }
+
+        return isMagic;
+    }
+
         return false;
     }
 
