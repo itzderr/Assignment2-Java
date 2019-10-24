@@ -1,5 +1,10 @@
 package ca.ciccc;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  *
  * Magic Squares are square arrays of numbers that have the interesting property that
@@ -69,11 +74,27 @@ public class MagicSquare {
      *
      * Explanation: The sums of each row and col are equal.
      */
-    public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-        return false;
-    }
 
+    public static boolean isMagicSquare(Integer[][] square) { // Coop Hotsuma
+        int n = square[0].length;
+        int[] vertical = new int[n];
+        int[] horizontal = new int[n];
+        for(int column = 0; column < n; column++) {
+            for(int row = 0; row < n; row++) {
+                vertical[column] += square[row][column];
+            }
+        }
+        for(int row = 0; row < n; row++) {
+            for(int column = 0; column < n; column++) {
+                horizontal[row] += square[row][column];
+            }
+        }
+        for(int i = 1; i < n; i++) {
+            if(vertical[0] != vertical[i] | horizontal[0] != horizontal[i])
+                return false;
+        }
+        return true;
+    }
     /**
      * Check if {@code this.square} is magic square or not.
      * @return {@code true} if {@code square} is magic, otherwise {@code false}
