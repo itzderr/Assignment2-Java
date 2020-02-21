@@ -22,9 +22,28 @@ public class Assignment2 {
      *
      */
     public String numberLoops(int n) {
-        // Todo: your code goes here
 
-        return null;
+        String result = "";
+
+        if (n == 1) {
+            result = "1";
+        } else {
+            int c = 1, c2 = n-1;
+            for (int i = 1; i <= n; i++) {
+                for (int j = 1; j <= c2; j++) {
+                    result = result + ".";
+                }
+                c2--;
+                for (int k = 1; k <= c; k++) {
+                    result = result + c;
+                }
+                c++;
+                if (c <= n) {
+                    result = result + "\n";
+                }
+            }
+        }
+        return result;
     }
 
     /**
@@ -33,9 +52,18 @@ public class Assignment2 {
      * @return true if the number of 1s is greater than the number of 7s
      */
     public boolean countNumbers(int[] nums) {
-        // Todo: your code goes here
 
-        return false;
+        int ones = 0;
+        int sevens = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                ones++;
+            } else if (nums[i] == 7) {
+                sevens++;
+            }
+        }
+        return (ones > sevens) ? true : false;
     }
 
     /**
@@ -51,9 +79,23 @@ public class Assignment2 {
      * sumExcept13({1, 2, 13, 2, 1, 13} -> 4
      */
     public int sumExcept13(int[] nums) {
-        // Todo: your code goes here
 
-        return 0;
+        int sum = 0;
+
+        if (nums.length == 0) {
+            return sum;
+        } else {
+            int i;
+            for (i = 0; i < nums.length; i++) {
+                if (nums[i] != 13) {
+                    sum = sum + nums[i];
+                } else {
+                    sum = sum;
+                    i++;
+                }
+            }
+        }
+        return sum;
     }
 
     /**
@@ -63,14 +105,24 @@ public class Assignment2 {
      * @return shifted array
      *
      * Sample Input / Output
-     * shiftArray({6, 2, 5, 3}) -> {2, 4, 3, 6}
+     * shiftArray({6, 2, 5, 3}) -> {2, 5, 3, 6}
      * shiftArray({2, 3}) -> {3, 2}
      * shiftArray({7}) -> {7}
      */
     public int[] shiftArray(int[] nums) {
-        // Todo: your code goes here
 
-        return null;
+        int[] newArray = new int[nums.length];
+
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i == 0) {
+                newArray[newArray.length - 1] = nums[i];
+            } else {
+                newArray[count] = nums[i];
+                count ++;
+            }
+        }
+        return newArray;
     }
 
     /**
@@ -79,8 +131,16 @@ public class Assignment2 {
      * @return true if the array contains three increasing adjacent numbers, otherwise false.
      */
     public boolean tripleIncreasingOrder(int[] nums) {
-        // Todo: your code goes here
 
+        if (nums.length < 3) {
+            return false;
+        } else {
+            for (int i = 1; i < nums.length; i++) {
+                if ((nums[i-1] == nums[i]-1 && nums[i+1] == nums[i]+1)) {
+                     return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -90,9 +150,27 @@ public class Assignment2 {
      * @return true if the array contains the same number of odds and even numbers, otherwise false.
      */
     public boolean evenOrOdd(int[] nums){
-        // Todo: your code goes here
 
-        return false;
+        int odds = 0;
+        int evens = 0;
+
+       for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < 0) {
+                int positive = Math.abs(nums[i]);
+                if ((positive % 2 == 0)) {
+                    odds++;
+                } else {
+                    evens++;
+                }
+            } else {
+                if (nums[i]%2 == 0) {
+                    odds ++;
+                } else {
+                    evens ++;
+                }
+            }
+        }
+        return (odds == evens) ? true : false;
     }
 }
 
