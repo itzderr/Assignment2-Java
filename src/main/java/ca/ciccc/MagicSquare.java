@@ -1,7 +1,5 @@
 package ca.ciccc;
 
-import java.util.Arrays;
-
 /**
  *
  * Magic Squares are square arrays of numbers that have the interesting property
