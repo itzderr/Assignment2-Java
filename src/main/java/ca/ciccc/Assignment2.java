@@ -11,20 +11,28 @@ public class Assignment2 {
      * Write nested for-loops to produce the following output from the given input n.
      * @param n number to create a pattern.
      * @return pattern
-     *
      * Sample Input / Output
      * numberLoops(3);
-     *
      * Sample Output
      * ..1
      * .22
      * 333
-     *
      */
     public String numberLoops(int n) {
-        // Todo: your code goes here
-
-        return null;
+        int counter1 = n-1, counter2=1;
+        String result="";
+        if (n > 1) {
+            for (int i = 1; i <= n; i++){
+                for (int j = 1; j <= counter1; j++) { result=result+"."; }
+                for (int k = 1; k <= counter2; k++) { result=result+counter2; }
+                counter1--; counter2++;
+                if (counter2 <= n) result=result+"\n";
+            }
+        }
+        else{
+            result="1";
+        }
+        return result;
     }
 
     /**
@@ -33,9 +41,17 @@ public class Assignment2 {
      * @return true if the number of 1s is greater than the number of 7s
      */
     public boolean countNumbers(int[] nums) {
-        // Todo: your code goes here
-
-        return false;
+        int counterOne = 0, counterSeven = 0;
+            if (nums.length>0){
+            for(int num: nums){
+                if (num==1)counterOne++;
+                else if(num==7) counterSeven++;
+            }
+            if (counterOne>counterSeven) return true;
+            else return false;
+        }
+        else
+            return false;
     }
 
     /**
@@ -51,9 +67,16 @@ public class Assignment2 {
      * sumExcept13({1, 2, 13, 2, 1, 13} -> 4
      */
     public int sumExcept13(int[] nums) {
-        // Todo: your code goes here
-
-        return 0;
+        if (nums.length<1) return 0;
+        else{
+            int sum=0,numBefore=0;
+            for (int num: nums) {
+                if (numBefore==13){ numBefore=num; continue; } numBefore=num;
+                if (num==13) continue;
+                sum=sum+num;
+            }
+            return sum;
+        }
     }
 
     /**
@@ -68,9 +91,11 @@ public class Assignment2 {
      * shiftArray({7}) -> {7}
      */
     public int[] shiftArray(int[] nums) {
-        // Todo: your code goes here
-
-        return null;
+        if (nums.length <=1) return nums;
+        int[] nums2 = new int [nums.length];
+        for (int i = 1; i < nums.length; i++) { nums2[i-1] = nums[i]; }
+        nums2[nums2.length-1] = nums[0];
+        return nums2;
     }
 
     /**
@@ -79,9 +104,16 @@ public class Assignment2 {
      * @return true if the array contains three increasing adjacent numbers, otherwise false.
      */
     public boolean tripleIncreasingOrder(int[] nums) {
-        // Todo: your code goes here
-
-        return false;
+        if(nums.length < 3) return false;
+        int count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i-1]+1) {
+                count++;
+                if (count == 3) break;
+            }else count=1;
+        }
+        if (count == 3) return true;
+        else return false;
     }
 
     /**
@@ -90,9 +122,13 @@ public class Assignment2 {
      * @return true if the array contains the same number of odds and even numbers, otherwise false.
      */
     public boolean evenOrOdd(int[] nums){
-        // Todo: your code goes here
-
-        return false;
+        int count1 = 0,count2 = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]%2==0) count2++;
+            else count1++;
+        }
+        if (count1 == count2) return true;
+        else return false;
     }
 }
 

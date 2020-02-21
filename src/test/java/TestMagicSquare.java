@@ -19,14 +19,10 @@ public class TestMagicSquare {
                 {new Integer[][]{{1, 2, 3}, {3, 1, 2}, {2, 3, 1}}, Boolean.TRUE}, // [5]
         });
     }
-
     @Parameterized.Parameter
     public Integer[][] inputSquare;
-
     @Parameterized.Parameter(1)
     public boolean expected;
-
-
     @Test
     public void testIsMagicSquareData() {
         Assert.assertEquals(expected, MagicSquare.isMagicSquare(inputSquare));

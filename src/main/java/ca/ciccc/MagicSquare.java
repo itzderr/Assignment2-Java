@@ -55,7 +55,6 @@ public class MagicSquare {
      * Check if {@code square} is magic square or not.
      * @param square 2-Dimensional array
      * @return {@code true} if {@code square} is magic, otherwise {@code false}
-     *
      * Sample Input
      * {
      *   {16, 3, 2, 13},
@@ -63,15 +62,22 @@ public class MagicSquare {
      *   {9, 6, 7, 12},
      *   {4, 15, 14, 1}
      * }
-     *
      * Sample Output
      * true
-     *
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-        return false;
+        int[][] sums= new int[2][square.length];
+        for (int i = 0; i < square.length; i++) {
+            for (int j = 0; j < square.length; j++) {
+                sums[0][i] += square[i][j];
+                sums[1][j] += square[i][j];
+            }
+        }
+        for ( int i = 0; i < sums.length; i++) {
+            for ( int j = 0; j < sums[0].length; j++) { if (sums[i][j] != sums[0][0]) return false; }
+        }
+        return true;
     }
 
     /**
