@@ -30,5 +30,5 @@ public class TestMagicSquare {
     @Test
     public void testIsMagicSquareData() {
         Assert.assertEquals(expected, MagicSquare.isMagicSquare(inputSquare));
-    }
+        }
 }

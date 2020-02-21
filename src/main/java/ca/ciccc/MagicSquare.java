@@ -1,5 +1,7 @@
 package ca.ciccc;
 
+import org.w3c.dom.ls.LSOutput;
+
 /**
  *
  * Magic Squares are square arrays of numbers that have the interesting property that
@@ -71,8 +73,21 @@ public class MagicSquare {
      */
     public static boolean isMagicSquare(Integer[][] square) {
         // TODO: You need to implement this method.
-        return false;
+        int n = square.length - 1;
+        int row = 0;
+        int col = 0;
+        int col1 = 0;
+        for (int i = 0; i < square.length; i++){
+                row += square[0][i];
+                col += square[i][0];
+                col1 += square[i][n];
+
+        }
+
+        return row == col && row == col1;
+
     }
+
 
     /**
      * Check if {@code this.square} is magic square or not.
@@ -82,3 +97,4 @@ public class MagicSquare {
         return isMagicSquare(this.square);
     }
 }
+
