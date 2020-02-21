@@ -22,9 +22,19 @@ public class Assignment2 {
      *
      */
     public String numberLoops(int n) {
-        // Todo: your code goes here
+        StringBuilder sb = new StringBuilder();
+        for ( int i = 1; i <= n ; i++){
+            for(int j = 1; j <=n ; j++){
+                if(  j <= (n -i) )
+                    sb.append(".");
+                else
+                    sb.append(i);
+            }
+            if( i < n )
+                sb.append("\n");
+        }
 
-        return null;
+        return sb.toString();
     }
 
     /**
@@ -33,9 +43,17 @@ public class Assignment2 {
      * @return true if the number of 1s is greater than the number of 7s
      */
     public boolean countNumbers(int[] nums) {
-        // Todo: your code goes here
+        int ones = 0;
+        int sevens = 0;
+        for (int n : nums){
+            if(n == 1)
+                ones++;
+            else if (n == 7)
+                sevens++;
+        }
 
-        return false;
+
+        return ones > sevens;
     }
 
     /**
@@ -51,9 +69,23 @@ public class Assignment2 {
      * sumExcept13({1, 2, 13, 2, 1, 13} -> 4
      */
     public int sumExcept13(int[] nums) {
-        // Todo: your code goes here
+        int count = 0;
+        boolean skip = false;
+        for (int n : nums){
+            if (n == 13){
+                skip = true;
+                continue;
+            }
+            if ( n != 13  ){
+                if(!skip){
+                    count = count + n;
+                }else{
+                    skip = false;
+                }
 
-        return 0;
+            }
+        }
+        return count;
     }
 
     /**
@@ -68,9 +100,13 @@ public class Assignment2 {
      * shiftArray({7}) -> {7}
      */
     public int[] shiftArray(int[] nums) {
-        // Todo: your code goes here
+        for (int i = 0 ; i < nums.length -1; i ++){
+            int aux = nums[i];
+            nums[i] = nums[i+1];
+            nums[i+1] = aux;
+        }
 
-        return null;
+        return nums;
     }
 
     /**
@@ -79,8 +115,11 @@ public class Assignment2 {
      * @return true if the array contains three increasing adjacent numbers, otherwise false.
      */
     public boolean tripleIncreasingOrder(int[] nums) {
-        // Todo: your code goes here
-
+        for (int i = 0; i< nums.length - 2; i++){
+            if (nums[i] == (nums[i+1]-1) && nums[i] == (nums[i+2]-2)){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -91,8 +130,15 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
-
-        return false;
+        int count = 0;
+        for (int n : nums){
+            if(n % 2 == 0){
+                count ++;
+            }else{
+                count --;
+            }
+        }
+        return count == 0;
     }
 }
 
