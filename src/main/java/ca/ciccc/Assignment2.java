@@ -1,5 +1,7 @@
 package ca.ciccc;
 
+import java.lang.reflect.Array;
+
 /**
  * This is the starter file for the Assignment 2
  *
@@ -24,7 +26,20 @@ public class Assignment2 {
     public String numberLoops(int n) {
         // Todo: your code goes here
 
-        return null;
+        String output = "";
+
+        for (int i = 1; i <= n; i++){
+
+            for (int j = 0; j <=n-i-1 ; j++) {
+                output += ".";
+            }
+            for (int j = 1; j <=i ; j++) {
+                output += Integer.toString(i);
+            }
+
+            if (i < n) output += "\n";
+        }
+        return output;
     }
 
     /**
@@ -34,8 +49,15 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
+        int countOne = 0;
+        int countSeven = 0;
 
-        return false;
+        for (int i = 0; i <= nums.length - 1; i++) {
+            if (nums[i] == 1) countOne++;
+            if (nums[i] == 7) countSeven++;
+        }
+        return countOne > countSeven ? true : false;
+
     }
 
     /**
@@ -52,8 +74,17 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+        int total = 0;
 
-        return 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 13){
+                i++;
+            }else {
+                total += nums[i];
+            }
+        }
+
+        return total;
     }
 
     /**
@@ -70,7 +101,20 @@ public class Assignment2 {
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
 
-        return null;
+        int len = nums.length;
+        if (len <= 1 ) return nums;
+
+
+
+        int firstValue = nums[0];
+
+        for (int i = 0; i <= len - 2; i++) {
+            nums[i] = nums[i+1];
+        }
+
+        nums[len -1] = firstValue;
+
+        return nums;
     }
 
     /**
@@ -80,6 +124,23 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
+
+        int len = nums.length;
+        if (len <= 2) return false;
+
+        int i = 0;
+        int consecutive = 0;
+
+        while(i <= len-1 -1){
+            if (nums[i] - nums[i+1] == -1){
+                consecutive ++;
+            }else{
+                consecutive = 0;
+            }
+            if (consecutive >= 2) return true;
+            i++;
+        }
+
 
         return false;
     }
@@ -91,8 +152,18 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
+        int len = nums.length;
+        if (len <= 1) return true;
 
-        return false;
+        int countEven = 0;
+
+        for (int val:nums
+             ) {
+            if (val%2==0) countEven++;
+        }
+
+        return (double)len/2==(double)countEven ? true:false;
+
     }
 }
 

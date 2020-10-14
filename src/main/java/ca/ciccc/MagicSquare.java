@@ -71,14 +71,68 @@ public class MagicSquare {
      */
     public static boolean isMagicSquare(Integer[][] square) {
         // TODO: You need to implement this method.
-        return false;
+
+        int len = square.length;
+
+        int magicNumber = arraySum(square[0]);
+
+
+        //  1.Check in horizontal way. Is each sum of {->} magicNumber?
+        for (int row = 0; row <= len-1; row++) {
+            if (arraySum(square[row]) != magicNumber) return false;
+        }
+
+        //  2.Check in vertical way. Is each sum of {↓} magicNumber?
+        for (int col = 0; col <= len-1; col++) {
+
+            int verticalSum = 0;
+            for (int row = 0; row <= len -1; row++) {
+                verticalSum += square[row][col];
+            }
+
+            if (verticalSum != magicNumber) return false;
+        }
+
+        // This is a checker about Diagonal way
+
+//        // 3.Check in Diagonal way. Is sum of {↘} magicNumber?.
+//        int DiagonalToLeftSum = 0;
+//        for (int i = 0; i <= len-1; i++) {
+//            DiagonalToLeftSum += square[i][i];
+//            if (DiagonalToLeftSum != magicNumber) return false;
+//        }
+//
+//        // 4.Check in Diagonal way. Is sum of {↙} magicNumber?.
+//        int DiagonalToRightSum = 0;
+//        for (int i = 0; i <= len-1; i++) {
+//            DiagonalToRightSum += square[i][(len-1)-i];
+//            if (DiagonalToRightSum != magicNumber) return false;
+//        }
+
+
+        return true;
     }
+
+    /**
+     * Calculate the sum of elements in one dimensional array.
+     * @param array one dimensional array, like {1,2,5,3}
+     * @return int as a sum. Ex, {1,2,5,3} -> 11
+     */
+    public static final int arraySum(Integer[] array) {
+        int sum = 0;
+        for (int val : array) {
+            sum += val;
+        }
+        return sum;
+    }
+
 
     /**
      * Check if {@code this.square} is magic square or not.
      * @return {@code true} if {@code square} is magic, otherwise {@code false}
      */
     public boolean isMagicSquare() {
+
         return isMagicSquare(this.square);
     }
 }
