@@ -22,6 +22,7 @@ public class MagicSquare {
      */
     public MagicSquare(int n) {
         this.n = n;
+        this.square = new Integer[n][n];
     }
 
     /**
@@ -64,16 +65,39 @@ public class MagicSquare {
      *   {4, 15, 14, 1}
      * }
      *
-     * Sample Output
+     * Sample i++
      * true
      *
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-        return false;
-    }
+        int allSums[] = new int[square.length + square[0].length];
 
+        for(int i = 0; i < square.length;i++) {
+            for (int j = 0; j < square[i].length; j++) {
+                allSums[i] += square[i][j];
+            }
+        }
+
+        for(int i = 0; i < square.length;i++) {
+            for (int j = 0; j < square[i].length; j++) {
+                allSums[square.length + j] += square[i][j];
+            }
+        }
+
+        for(int i = 1; i < allSums.length; i++) {
+            if(allSums[i-1] == allSums[i]) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    public static int getN(){
+        return 0;
+    }
     /**
      * Check if {@code this.square} is magic square or not.
      * @return {@code true} if {@code square} is magic, otherwise {@code false}
