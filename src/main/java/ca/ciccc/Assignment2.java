@@ -1,5 +1,9 @@
 package ca.ciccc;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * This is the starter file for the Assignment 2
  *
@@ -22,9 +26,18 @@ public class Assignment2 {
      *
      */
     public String numberLoops(int n) {
-        // Todo: your code goes here
-
-        return null;
+        StringBuilder result = new StringBuilder();
+        for (int i = 1; i <= n; i++) {
+            if (i > 1) result.append("\n");
+            for (int j = 1; j <= n; j++) {
+                if (i + j > n) {
+                    result.append(i);
+                } else {
+                    result.append(".");
+                }
+            }
+        }
+        return result.toString();
     }
 
     /**
@@ -33,9 +46,13 @@ public class Assignment2 {
      * @return true if the number of 1s is greater than the number of 7s
      */
     public boolean countNumbers(int[] nums) {
-        // Todo: your code goes here
-
-        return false;
+        int count1 = 0;
+        int count7 = 0;
+        for (int i: nums) {
+            if (i == 1) count1 ++;
+            if (i == 7) count7 ++;
+        }
+        return count1 > count7;
     }
 
     /**
@@ -51,9 +68,15 @@ public class Assignment2 {
      * sumExcept13({1, 2, 13, 2, 1, 13} -> 4
      */
     public int sumExcept13(int[] nums) {
-        // Todo: your code goes here
-
-        return 0;
+        int result = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 13) {
+                i ++;
+                continue;
+            }
+            result += nums[i];
+        }
+        return result;
     }
 
     /**
@@ -68,9 +91,13 @@ public class Assignment2 {
      * shiftArray({7}) -> {7}
      */
     public int[] shiftArray(int[] nums) {
-        // Todo: your code goes here
-
-        return null;
+        if (nums.length == 0) return nums;
+        int first = nums[0];
+        for (int i = 0; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+        nums[nums.length - 1] = first;
+        return nums;
     }
 
     /**
@@ -79,9 +106,21 @@ public class Assignment2 {
      * @return true if the array contains three increasing adjacent numbers, otherwise false.
      */
     public boolean tripleIncreasingOrder(int[] nums) {
-        // Todo: your code goes here
-
-        return false;
+        boolean result = false;
+        for (int i: nums) {
+            int[] positives = {i + 1, i + 2};
+            for (int v: positives) {
+                result = this.hasValue(v, nums);
+                if (!result) break;
+            }
+            if (result) break;
+            int[] negatives = {i - 1, i - 2};
+            for (int v: negatives) {
+                result = this.hasValue(v, nums);
+                if (!result) break;
+            }
+        }
+        return result;
     }
 
     /**
@@ -90,9 +129,22 @@ public class Assignment2 {
      * @return true if the array contains the same number of odds and even numbers, otherwise false.
      */
     public boolean evenOrOdd(int[] nums){
-        // Todo: your code goes here
+        if (nums.length % 2 != 0) return false;
+        List<Integer> list = new ArrayList<Integer>(nums.length);
+        for (int i: nums) {
+            list.add(i);
+        }
+        List<Integer> odds = list.stream().filter(n -> n % 2 == 1).collect(Collectors.toList());
+        List<Integer> even = list.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
+        return odds.size() == even.size();
+    }
 
-        return false;
+    public boolean hasValue(int v, int[] nums) {
+        List<Integer> list = new ArrayList<Integer>(nums.length);
+        for (int i: nums) {
+            list.add(i);
+        }
+        return list.contains(v);
     }
 }
 
