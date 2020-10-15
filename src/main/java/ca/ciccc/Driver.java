@@ -11,7 +11,7 @@ public class Driver {
 //        System.out.println("number loop: \n" + a2.numberLoops(4));
 
 
-        System.out.println(Arrays.toString(a2.shiftArray(new int[]{6, 2, 5, 3})));
+//        System.out.println(Arrays.toString(a2.shiftArray(new int[]{6, 2, 5, 3})));
 //        System.out.println(Arrays.toString(a2.shiftArray(new int[]{})));
 //        System.out.println(Arrays.toString(a2.shiftArray(new int[]{1})));
 //        System.out.println(Arrays.toString(a2.shiftArray(new int[]{1, 2, 3})));
@@ -26,5 +26,14 @@ public class Driver {
 //        System.out.println(a2.tripleIncreasingOrder(new int[] {1, 2, 4, 5, 7, 6, 5, 6, 7, 6}));
 //        System.out.println(a2.tripleIncreasingOrder(new int[] {10, 9, 8, -100, -99, -98, 100}));
 
+
+        Integer[][] square = new Integer[][] {
+            {16, 3, 2, 13},
+            {5, 10, 11, 8},
+            {9, 6, 7, 12},
+            {4, 15, 14, 1},
+        };
+        MagicSquare ms = new MagicSquare(4, square);
+        System.out.println(ms.isMagicSquare());
     }
 }
