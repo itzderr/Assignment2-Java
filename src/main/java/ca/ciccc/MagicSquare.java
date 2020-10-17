@@ -72,6 +72,24 @@ public class MagicSquare {
      */
     public static boolean isMagicSquare(Integer[][] square) {
         // TODO: You need to implement this method.
+
+        for(int i=0; i<square[0].length; i++) {
+            int rowT = 0;
+            for (int j = 0; j < square.length; j++) {
+                rowT += Integer[i][j];
+            }
+            if (rowT == square) {
+                return false;
+            }
+        }
+        for(int i=0; i<square[0].length; i++){
+            int colT=0;
+            for(int j = 0; j < square.length; j++)
+                colT += Integer[i][j];
+            if(colT!=square) {
+                return false;
+            }
+        }
         return false;
     }
 

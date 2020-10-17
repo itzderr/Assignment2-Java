@@ -1,5 +1,7 @@
 package ca.ciccc;
 
+//import java.util.Scanner;
+
 /**
  * This is the starter file for the Assignment 2
  *
@@ -24,7 +26,14 @@ public class Assignment2 {
     public String numberLoops(int n) {
         // Todo: your code goes here
 
-        return null;
+        for (int i = 1; i <= n; i++) {
+            //System.out.println(n);
+            for (int j = 3; j <= n+i; j++) {
+                System.out.print(i);
+            }
+            System.out.println(".");
+        }
+        return String.valueOf(n);
     }
 
     /**
@@ -34,9 +43,20 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
+        int x = 0;
 
-        return false;
-    }
+       for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                return true;
+            } else if (nums[i] == 7) {
+                return false;
+            }
+        }
+        return false;}
+
+
+
+
 
     /**
      * Return the sum of numbers in the array, returning 0 for an empty array. Except the number 13
@@ -52,10 +72,17 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
-
-        return 0;
+        int sum = 0;
+        for(int x = 0; x < nums.length; x++) {
+            if(nums[x]== 13) {
+                nums[x]=0;
+                if(nums[x] <nums.length) {
+                    nums[x+1]=0;
+                }
+            }
+        }
+        return sum;
     }
-
     /**
      * Return an array that is "left shifted" by one -- so {6, 2, 5, 3} return {2, 5, 3, 6}.
      * You may modify and return the given array, or return a new array.
@@ -67,11 +94,19 @@ public class Assignment2 {
      * shiftArray({2, 3}) -> {3, 2}
      * shiftArray({7}) -> {7}
      */
+
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
+//           Object arr=nums[nums];
 
-        return null;
-    }
+        if(nums.length<1){
+            return nums;}
+        int sw=nums[0];
+        for(int i = 0; true; i++) {
+        nums[i-1]=nums[i];
+        nums[nums.length-1]=sw;
+        return nums[]}
+        }
 
     /**
      * Return true if the array contains three increasing adjacent numbers, otherwise false.
@@ -80,9 +115,15 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
-        return false;
-    }
+       // int[]nums=0;
+        boolean three=false;
+            for (int x=0; x<nums.length-2; x++){
+                        if (nums[x] == nums[x+1]- 1 && nums[x] == nums[x + 2]- 2){
+                            three = true;
+                            break;
+                        }
+            }
+        return three; }
 
     /**
      * Return true if the array contains the same number of odds and even numbers, otherwise false.
@@ -91,8 +132,18 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
+            boolean even=false;
+            boolean odds=false;
+            for(int x=0; x<nums.length-2; x++){
+                if(nums[x]%2==0){
+                    even=true;
+                }else{
+                    odds=true;
+                }
+                return true;
+            }
+    return nums;}
 
-        return false;
-    }
 }
+
 
