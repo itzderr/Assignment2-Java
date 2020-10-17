@@ -72,13 +72,51 @@ public class MagicSquare {
      */
     public static boolean isMagicSquare(Integer[][] square) {
         // TODO: You need to implement this method.
-        int sum = 0;
-        for(int i = 0; i <= square.length - 1; i++){
+        int rows = square.length;
+        // Reference of cols variable is as follows
+        // https://www.javatpoint.com/java-program-to-find-the-sum-of-each-row-and-each-column-of-a-matrix
+        int cols = square[0].length;
 
+        // Make an amount of first row
+        // Thanks to Takayasu I could come up with setting sumFirstRow variable
+        int sumFirstRow = 0;
+        for(int col = 0; col <= cols - 1; col++){
+            sumFirstRow += square[0][col];
         }
 
+        // Make an amount of second and other rows
+        int sumRow = 0;
+        for(int row = 1; row <= rows - 1; row++){
+            sumRow = 0;
+            for(int col = 0; col <= cols - 1; col++){
+                sumRow += square[row][col];
+            }
+            if(sumRow != sumFirstRow){
+                return false;
+            }
+        }
 
-        return false;
+        // Make an amount of first col
+        // Thanks to Takayasu I could come up with setting sumFirstCol variable
+        int sumFirstCol = 0;
+        for(int row = 0; row <= rows - 1; row++){
+            sumFirstCol += square[row][0];
+        }
+
+        // Make an amount of all cols
+        int sumCol = 0;
+        for(int col = 1; col <= cols - 1; col++){
+            sumCol = 0;
+            for(int row = 0; row <= rows - 1; row++){
+                sumCol += square[row][col];
+            }
+            if(sumFirstCol != sumCol){
+                return false;
+            }
+        }
+
+        // Check if sum of each row and col is equal.
+        return true;
     }
 
     /**
@@ -89,3 +127,4 @@ public class MagicSquare {
         return isMagicSquare(this.square);
     }
 }
+
