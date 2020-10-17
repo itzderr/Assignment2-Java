@@ -114,7 +114,6 @@ public class MagicSquare {
                 return false;
             }
         }
-
         // Check if sum of each row and col is equal.
         return true;
     }
@@ -127,4 +126,3 @@ public class MagicSquare {
         return isMagicSquare(this.square);
     }
 }
-
