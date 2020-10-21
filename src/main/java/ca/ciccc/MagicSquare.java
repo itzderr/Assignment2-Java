@@ -71,8 +71,54 @@ public class MagicSquare {
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-        return false;
+        // store the rowSums in an array
+        int firstRowSum = rowSum(0, square);
+        int[] rowSums = new int[square.length];
+        for (int r = 0; r < square.length; r++) {
+            rowSums[r] = rowSum(r, square);
+        }
+
+        // check the rows
+        for (int i = 0; i < square.length - 1; i++) {
+            if (rowSums[i] != rowSums[i + 1]) {
+                return false;
+            }
+        }
+
+        // store the colSums in an array
+        int[] colSums = new int[square.length];
+        for (int c = 0; c < square.length; c++) {
+            colSums[c] = colSum(c, square);
+        }
+
+        // make sure rowSum == colSum
+        if (firstRowSum != colSums[0]) {
+            return false;
+        }
+
+        // check the cols
+        for (int i = 0; i < square.length - 1; i++) {
+            if (colSums[i] != colSums[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static int colSum(int col, Integer[][] square) {
+        int colSum = 0;
+        for (int r = 0; r < square.length; r++) {
+            colSum += square[r][col];
+        }
+        return colSum;
+    }
+
+    private static int rowSum(int row, Integer[][] square) {
+        int rowSum = 0;
+        for (int elem : square[row]) {
+            rowSum += elem;
+        }
+        return rowSum;
     }
 
     /**
