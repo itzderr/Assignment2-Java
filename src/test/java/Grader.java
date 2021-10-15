@@ -1,7 +1,6 @@
 import ca.ciccc.Assignment2;
 import org.junit.*;
 
-
 /**
  * Grader for the assignment 2
  * Your code need to pass all test cases.
