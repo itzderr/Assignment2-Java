@@ -1,5 +1,7 @@
 package ca.ciccc;
 
+import com.sun.rowset.internal.Row;
+
 /**
  *
  * Magic Squares are square arrays of numbers that have the interesting property that
@@ -71,8 +73,23 @@ public class MagicSquare {
      * Explanation: The sums of each row and col are equal.
      */
     public static boolean isMagicSquare(Integer[][] square) {
-        // TODO: You need to implement this method.
-        return false;
+        int equalSum = 0;
+        int tempRowSum = 0;
+        int tempColSum = 0;
+        for (int r = 0; r != square.length;r++){
+            for (int c = 0; c != square[r].length; c++){
+                tempRowSum += square[r][c];
+                tempColSum += square[c][r];
+            }
+            if(equalSum == 0 && tempRowSum == tempColSum){
+                equalSum = tempRowSum;
+            } else if (equalSum != tempRowSum && equalSum != tempColSum){
+                return false;
+            }
+            tempRowSum = 0;
+            tempColSum = 0;
+        }
+        return true;
     }
 
     /**
