@@ -22,19 +22,20 @@ public class Assignment2 {
      *
      */
     public String numberLoops(int n) {
-        //StringBuilder(String n);
-        for (int i = 1; i <= 3; i++) {
-            for (int j = 1; j <= (3 - i); j++) {
-                System.out.print(".");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print(i);
-            }
-            System.out.println();
-            break;
-        }
 
-        return numberLoops(1);
+        StringBuilder result = new StringBuilder();
+        for (int row = 0; row < n; row++){
+            for (int dot = n - 1; dot > row; dot--) {
+                result.append(".");
+            }
+            for (int number = 0; number <= row; number++) {
+                result.append(row + 1);
+            }
+            if (row != n - 1) {
+                result.append("\n");
+            }
+        }
+        return result.toString();
 
     }
 
