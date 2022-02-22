@@ -23,8 +23,20 @@ public class Assignment2 {
      */
     public String numberLoops(int n) {
         // Todo: your code goes here
-
-        return null;
+        String result = "";
+        for (int row = 1; row <= n; row++) {
+            for (int col = n; col >= 1 ; col--) {
+                if (col > row) {
+                    result = result + ".";
+                } else {
+                    result += String.valueOf(row);
+                }
+            }
+            if (row < n) {
+                result += "\n";
+            }
+        }
+        return result;
     }
 
     /**
@@ -34,8 +46,15 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
-
-        return false;
+        int count1 = 0, count7 = 0;
+        for (int i = 0; i < nums.length ; i++) {
+            if (nums[i] == 1) {
+                count1++;
+            } else if (nums[i] == 7) {
+                count7++;
+            }
+        }
+        return (count1 > count7);
     }
 
     /**
@@ -52,8 +71,16 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
-
-        return 0;
+        int sum = 0, i = 0;
+        while (i < nums.length) {
+            if (nums[i] == 13) {
+                i += 2;
+            } else {
+                sum += nums[i];
+                i++;
+            }
+        }
+        return sum;
     }
 
     /**
@@ -69,8 +96,14 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
-
-        return null;
+        if (nums.length > 1) {
+            int value1 = nums[0];
+            for (int i = 0 ; i < nums.length - 1 ; i++) {
+                nums[i] = nums[i + 1];
+            }
+            nums[nums.length - 1] = value1;
+        }
+        return nums;
     }
 
     /**
@@ -80,7 +113,13 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
+        if (nums.length > 2) {
+            for (int i = 0; i < nums.length - 2; i++) {
+                if ( nums[i] == nums[i+1] - 1 && nums[i] == nums[i+2] - 2) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -91,8 +130,15 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
-
-        return false;
+        int odds = 0, even = 0;
+        for (int i = 0; i < nums.length ; i++) {
+            if (nums[i] % 2 == 0) {
+                even++;
+            } else {
+                odds++;
+            }
+        }
+        return (even == odds);
     }
 }
 
