@@ -82,24 +82,18 @@ public class MagicSquare {
       }
     }
 
-    for (int i = 0; i < squareLen - 1; i++) {
+    for (int i = 0; i < squareLen-1; i++) {
       int finalI = i;
       Integer[] curr = Arrays.stream(square)
           .reduce(new Integer[]{0}, (a, b) -> new Integer[]{a[0] + b[finalI]});
-      Integer[] next = Arrays.stream(square)
-          .reduce(new Integer[]{0}, (a, b) -> new Integer[]{a[0] + b[finalI]});
-      if (curr[0] != target || (int)curr[0] != (int)next[0]) {
+      if ((int)curr[0] != target) {
         return false;
       }
     }
     
     return true;
   }
-
-  public static void main(String[] args) {
-    System.out.println(isMagicSquare(new Integer[][]{{1, 2, 3}, {3, 1, 2}, {2, 3, 1}}));
-  }
-
+  
   /**
    * Check if {@code this.square} is magic square or not.
    *
