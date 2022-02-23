@@ -12,7 +12,7 @@ package ca.ciccc;
  */
 public class MagicSquare {
     /* n rows and n cols square */
-    private int n;
+    private final int n;
     /* 2-Dimensional array to represent the square */
     private Integer[][] square;
 
@@ -72,7 +72,29 @@ public class MagicSquare {
      */
     public static boolean isMagicSquare(Integer[][] square) {
         // TODO: You need to implement this method.
-        return false;
+
+        // help - stackoverflow.com
+
+        int[] sum = new int[square.length + square[0].length];
+
+        for (int x = 0; x < square.length; x++) {
+            for (int y = 0; y < square[x].length; y++) {
+                sum[x] += square[x][y];
+            }
+        }
+
+        for (Integer[] integers : square) {
+            for (int y = 0; y < integers.length; y++) {
+                sum[square.length + y] += integers[y];
+            }
+        }
+
+        for (int x = 1; x < sum.length; x++) {
+            if (sum[x - 1] != sum[x]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

@@ -24,7 +24,21 @@ public class Assignment2 {
     public String numberLoops(int n) {
         // Todo: your code goes here
 
-        return null;
+        String pattern = "";
+
+        for (int x = 1; x <= n; x++) {
+            for (int y = 1; y <= n; y++) {
+                if (n - y + 1 <= x) {
+                    pattern += String.format("%d", x);
+                } else {
+                    pattern += ".";
+                }
+            }
+            if (x < n) {
+                pattern += "\n";
+            }
+        }
+        return pattern;
     }
 
     /**
@@ -35,7 +49,18 @@ public class Assignment2 {
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
 
-        return false;
+        int one = 0;
+        int seven = 0;
+
+        for (int x = 0; x <= nums.length - 1; x++) {
+            if (nums[x] == 1) {
+                one += 1;
+            }
+            if (nums[x] == 7) {
+                seven += 1;
+            }
+        }
+        return one > seven;
     }
 
     /**
@@ -53,7 +78,16 @@ public class Assignment2 {
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
 
-        return 0;
+        int sum = 0;
+
+        for (int x = 0; x < nums.length; x++) {
+            if (nums[x] == 13) {
+                x += 1;
+            } else {
+                sum = sum + nums[x];
+            }
+        }
+        return sum;
     }
 
     /**
@@ -70,7 +104,14 @@ public class Assignment2 {
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
 
-        return null;
+        if (nums.length != 0) {
+            int temp = nums[0];
+            for (int x = 0; x < nums.length - 1; x++) {
+                nums[x] = nums[x + 1];
+            }
+            nums[nums.length - 1] = temp;
+        }
+        return nums;
     }
 
     /**
@@ -81,7 +122,13 @@ public class Assignment2 {
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
 
-        return false;
+        int count = 0;
+        for (int x = 0; x <= nums.length - 3; x++) {
+            if (nums[x] == (nums[x + 1] - 1) && nums[x] == (nums[x + 2] - 2)) {
+                count += 1;
+            }
+        }
+        return count >= 1;
     }
 
     /**
@@ -92,7 +139,13 @@ public class Assignment2 {
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
 
-        return false;
+        int count = 0;
+        for(int x = 0; x <= nums.length -1; x++){
+            if(nums[x] % 2 == 0){
+                count += 1;
+            }
+        }
+        return count == (nums.length - count);
     }
 }
 
