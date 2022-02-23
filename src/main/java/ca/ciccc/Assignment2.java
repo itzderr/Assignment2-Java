@@ -24,6 +24,7 @@ public class Assignment2 {
     public String numberLoops(int n) {
         // Todo: your code goes here
 
+
         return null;
     }
 
@@ -34,8 +35,18 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
+        int count1 = 0;
+        int count7 = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                count1 += 1;
+            } else if (nums[i] == 7) {
+                count7 += 1;
 
-        return false;
+            }
+
+        }
+        return count1 > count7;
     }
 
     /**
@@ -52,8 +63,18 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+            int count = 0;
+            for (int i = 0; i < nums.length; i++ ){
+                if (nums[i] == 13){
+                    i++;
+                }else{
+                    count += nums[i];
 
-        return 0;
+                }
+            }
+
+
+        return count;
     }
 
     /**
@@ -69,8 +90,17 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
+        if (nums.length > 1) {
+            int first = nums[0];
 
-        return null;
+            for (int i = 1; i < nums.length; i++)
+                nums[i - 1] = nums[i];
+
+            nums[nums.length - 1] = first;
+
+
+        }
+        return nums;
     }
 
     /**
@@ -80,6 +110,14 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
+        if (nums.length >= 3){
+            for (int i = 0; i < nums.length - 2; i++){
+                if (nums[i] +2 == nums[i+1] + 1 && nums[i+1] + 1 == nums[i+2]){
+                    return true;
+                }
+
+            }
+        }
 
         return false;
     }
@@ -90,9 +128,17 @@ public class Assignment2 {
      * @return true if the array contains the same number of odds and even numbers, otherwise false.
      */
     public boolean evenOrOdd(int[] nums){
+        int oddCount = 0;
+        int evenCount = 0;
+        for (int i =0; i < nums.length; i++){
+            if (nums[i] % 2 == 0 ){
+                evenCount ++;
+            }else{
+                oddCount ++;
+            }
+        }
         // Todo: your code goes here
 
-        return false;
+        return oddCount == evenCount;
     }
 }
-
