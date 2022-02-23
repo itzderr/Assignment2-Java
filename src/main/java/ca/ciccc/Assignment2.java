@@ -1,31 +1,48 @@
 package ca.ciccc;
 
+
+import com.sun.javafx.binding.StringFormatter;
+
 /**
  * This is the starter file for the Assignment 2
  *
- * @author Derrick Park
+ * @author MisatoTanno
  * @version 1.0
  */
 public class Assignment2 {
     /**
      * Write nested for-loops to produce the following output from the given input n.
+     *
      * @param n number to create a pattern.
      * @return pattern
-     *
+     * <p>
      * Sample Input / Output
      * numberLoops(3);
-     *
+     * <p>
      * Sample Output
      * ..1
      * .22
      * 333
-     *
      */
     public String numberLoops(int n) {
         // Todo: your code goes here
-
-        return null;
+        String pattern = "" ;
+        for (int line = 1; line <= n; line++) {
+            if (n < 2) {
+                return pattern + n;
+            } else {
+                for (int j = 1; j <= (n - line); j++) {
+                    pattern = pattern + ".";
+                }
+                for (int k = 1; k <= line; k++) {
+                    pattern = pattern + line;
+                }
+                }
+            System.out.println();
+            }
+        return pattern;
     }
+
 
     /**
      * Given an array of integers, return true if the number of 1s is greater than the number of 7s
@@ -34,8 +51,14 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
-
-        return false;
+        int count = 0;
+        for (int i=0; i<nums.length;i++){
+            if(nums[i] == 1)
+                count ++;
+            else if (nums[i] == 7)
+                count --;
+        }
+        return (count > 0);
     }
 
     /**
@@ -52,8 +75,17 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
-
-        return 0;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (nums.length == 0) {
+                return 0;
+            }
+            if (nums[i] == 13) {
+                i ++;
+            }else
+                sum += nums[i];
+        }
+        return sum;
     }
 
     /**
@@ -69,8 +101,15 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
-
-        return null;
+        if (nums.length < 1)
+            return new int[]{};
+        else {
+            int startNum = nums[0];
+            for (int i = 0; i < nums.length - 1; i++)
+                nums[i] = nums[i + 1];
+            nums[nums.length-1] = startNum;
+        }
+        return nums;
     }
 
     /**
@@ -80,8 +119,14 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
-        return false;
+        boolean isIncrease = false;
+        for (int i = 0; i < nums.length-1; i++) {
+            if (nums[i]+1 == nums[i+1] && nums[i+1] + 1 == nums[i+2]) {
+                isIncrease = true;
+                break;
+            }
+        }
+        return isIncrease;
     }
 
     /**
@@ -91,8 +136,22 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
-
-        return false;
+        int oddNumber = 0;
+        int evenNumber = 0;
+        boolean isSameNumber = false;
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] %2 == 0){
+                evenNumber++;
+            } else {
+                oddNumber++;
+            }
+        if (oddNumber == evenNumber){
+            isSameNumber = true;
+        } else {
+            isSameNumber = false;
+        }
+        }
+        return isSameNumber;
     }
 }
 
