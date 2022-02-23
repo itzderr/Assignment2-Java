@@ -26,7 +26,6 @@ public class TestMagicSquare {
     @Parameterized.Parameter(1)
     public boolean expected;
 
-
     @Test
     public void testIsMagicSquareData() {
         Assert.assertEquals(expected, MagicSquare.isMagicSquare(inputSquare));
