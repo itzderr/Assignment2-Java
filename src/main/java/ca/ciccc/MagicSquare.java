@@ -72,7 +72,35 @@ public class MagicSquare {
      */
     public static boolean isMagicSquare(Integer[][] square) {
         // TODO: You need to implement this method.
-        return false;
+        // sumd1 and sumd2 are the sum of the two diagonals
+        int sumd1 = 0;
+        int sumd2 = 0;
+
+        for (int i = 0; i < square.length; i++) {
+            // (i, i) is the diagonal from top-left -> bottom-right
+            // (i, square.length - i - 1) is the diagonal from top-right -> bottom-left
+            sumd1 += square[i][i];
+            sumd2 += square[i][square.length - 1 - i];
+        }
+        // if the two diagonal sums are unequal then it is not a magic square
+        //if(sumd1 != sumd2)
+        //    return false;
+
+        // calculating sums of Rows and Columns and checking if they are equal to each other,
+        // as well as equal to diagonal sum or not
+        for (int i = 0; i < square.length; i++) {
+
+        int rowSum = 0;
+        int colSum = 0;
+        for (int j = 0; j < square.length; j++) {
+
+            rowSum += square[i][j];
+            colSum += square[j][i];
+        }
+        if (rowSum != colSum)
+            return false;
+        }
+        return true;
     }
 
     /**

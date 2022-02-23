@@ -7,24 +7,28 @@ package ca.ciccc;
  * @version 1.0
  */
 public class Assignment2 {
+
     /**
      * Write nested for-loops to produce the following output from the given input n.
+     *
      * @param n number to create a pattern.
      * @return pattern
-     *
-     * Sample Input / Output
-     * numberLoops(3);
-     *
-     * Sample Output
-     * ..1
-     * .22
-     * 333
-     *
+     * <p>
+     * Sample Input / Output numberLoops(3);
+     * <p>
+     * Sample Output ..1 .22 333
      */
-    public String numberLoops(int n) {
+    public int numberLoops(int n) {
         // Todo: your code goes here
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= (5 -i); j++) {
+            System.out.print(".");}
+        for (int k = 1; k <= i; k++) {
+            System.out.print(i);}
+        System.out.println();
+        }
 
-        return null;
+        return n;
     }
 
     /**
@@ -34,8 +38,30 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
+//        int a = 0;
+//        int b = 0;
+//        for (int i = 0; i < nums.length; i++) {
+//            if(nums[i] == 1)
+//                a++;
+//            else if(nums[i] == 7)
+//                b--;
 
-        return false;
+        int c1s = 0;
+        int c7s = 0;
+        boolean result = false;
+
+        for (int i = 0; i <= nums.length-1; i++){
+            if (nums[i] == 1) {
+                c1s++;
+            }
+            if (nums[i] == 7){
+                c7s++;
+            }
+        }
+        if (c1s > c7s){
+            result = true;
+        }
+        return result;
     }
 
     /**
@@ -52,8 +78,18 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+        int sum = 0;
+        int e = 0;
 
-        return 0;
+        while (e < nums.length) {
+            if (nums[e] == 13) {
+                e += 2;
+            } else {
+                sum += nums[e];
+                e += 1;
+            }
+        }
+        return sum;
     }
 
     /**
@@ -69,7 +105,10 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
-
+//        int temp [] = nums[]
+//        int newArray[] = new int[nums - 1];
+//
+//            for (int i = 1 ; i < nums.length - 1; i++)
         return null;
     }
 
@@ -80,7 +119,13 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
+        int count = 0;
+        while(count < nums.length){
+            if (nums[count] % 3 == 0){
+                return true;
+            }
+            count++;
+        }
         return false;
     }
 
@@ -91,8 +136,22 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
+        int count = 0;
+        int odd = 0;
+        int even = 0;
 
+        while(count < nums.length){
+            if (nums[count] % 2 == 0){
+                even ++;
+            }
+            if (nums[count] % 2 == 1){
+                odd ++;
+            }
+            count++;
+        }
+        if (odd == even){
+            return true;
+        }
         return false;
     }
 }
-
