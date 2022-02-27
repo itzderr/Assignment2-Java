@@ -27,22 +27,20 @@ public class Assignment2 {
     public String numberLoops(int n) {
         // Todo: your code goes here
         String pattern = "" ;
-        for (int line = 1; line <= n; line++) {
-            if (n < 2) {
-                return pattern + n;
-            } else {
-                for (int j = 1; j <= (n - line); j++) {
-                    pattern = pattern + ".";
+        if (n == 0) {
+            return "" + n;
+        } else {
+            for (int line = 1; line < n; line++) {
+                pattern = "" ;
+                for (int dot = 0; dot < n-dot-1;dot++)
+                    pattern += ".";
+                for (int num = 1; num < n;num++) {
+                    pattern+= num;
                 }
-                for (int k = 1; k <= line; k++) {
-                    pattern = pattern + line;
-                }
-                }
-            System.out.println();
             }
-        return pattern;
+            return pattern;
+        }
     }
-
 
     /**
      * Given an array of integers, return true if the number of 1s is greater than the number of 7s
