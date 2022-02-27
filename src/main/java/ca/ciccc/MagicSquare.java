@@ -88,10 +88,10 @@ public class MagicSquare {
             }
         }
         //check sumColumn
-        for (int k = 0; k<square.length; k ++) {
+        for (int k = 0; k < square.length; k ++) {
             sumColumn = 0;
             for (int l = 0; l < square[k].length; l++){
-                sumColumn += square[k][k];
+                sumColumn += square[l][k];
             }
         }
         if (magicalNumber == sumRow && magicalNumber == sumColumn) {
