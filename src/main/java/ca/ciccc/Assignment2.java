@@ -23,8 +23,22 @@ public class Assignment2 {
      */
     public String numberLoops(int n) {
         // Todo: your code goes here
+        String lines = "";
 
-        return null;
+        for(int i = 1; i <= n; ++i){
+            String line = "";
+            for (int j = 0; j < n - i; ++j){
+                line += ".";
+            }
+            for (int j = 0; j < i; ++j) {
+                line += String.format("%d", i);
+            }
+            lines += line;
+            if (i < n) {
+                lines += "\n";
+            }
+        }
+        return lines;
     }
 
     /**
@@ -34,8 +48,17 @@ public class Assignment2 {
      */
     public boolean countNumbers(int[] nums) {
         // Todo: your code goes here
-
-        return false;
+        int numberOfOnes = 0;
+        int numberOfSevens = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 1) {
+                numberOfOnes += 1;
+            }
+            if (nums[i] == 7) {
+                numberOfSevens += 1;
+            }
+        }
+        return numberOfOnes > numberOfSevens;
     }
 
     /**
@@ -52,8 +75,17 @@ public class Assignment2 {
      */
     public int sumExcept13(int[] nums) {
         // Todo: your code goes here
+        int total = 0;
 
-        return 0;
+        for(int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 13) {
+                ++i;
+                continue;
+            }
+            total += nums[i];
+        }
+
+        return total;
     }
 
     /**
@@ -69,8 +101,16 @@ public class Assignment2 {
      */
     public int[] shiftArray(int[] nums) {
         // Todo: your code goes here
+        int[] shifted = new int[nums.length];
 
-        return null;
+        for (int i = 0; i < nums.length; ++i) {
+            if (i == 0) {
+                shifted[shifted.length -1] = nums[i];
+            } else {
+                shifted[i - 1] = nums[i];
+            }
+        }
+        return shifted;
     }
 
     /**
@@ -80,7 +120,18 @@ public class Assignment2 {
      */
     public boolean tripleIncreasingOrder(int[] nums) {
         // Todo: your code goes here
-
+        int increasingStreak = 1;
+        int lastNumber = nums[0];
+        for (int i = 1; i < nums.length; ++i){
+            if (nums[i] == lastNumber + 1 ) {
+                increasingStreak += 1;
+            } else { increasingStreak = 1;
+              }
+            lastNumber = nums[i];
+            if (increasingStreak == 3) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -91,8 +142,17 @@ public class Assignment2 {
      */
     public boolean evenOrOdd(int[] nums){
         // Todo: your code goes here
+            int evens = 0;
+            int odds = 0;
 
-        return false;
+            for (int i = 0; i < nums.length; ++i) {
+                if (nums[i] % 2 == 0) {
+                    evens += 1;
+                } else {
+                    odds += 1;
+                }
+                }
+            return evens == odds;
     }
 }
 
